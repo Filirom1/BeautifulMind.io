@@ -3,4 +3,7 @@
 # script. The application will work only if it binds to
 # $OPENSHIFT_INTERNAL_IP:8080
 cd $OPENSHIFT_REPO_DIR/beautifulmind
-nohup ./env_default/bin/python manage.py runserver_plus "${OPENSHIFT_DIY_IP}:${OPENSHIFT_DIY_PORT}" > $OPENSHIFT_DIY_DIR/logs/server.log 2>&1 &
+./virtualenv/bin/python manage.py syncdb
+./virtualenv/bin/python manage.py migrate
+
+nohup ./virtualenv/bin/python manage.py runserver_plus "${OPENSHIFT_DIY_IP}:${OPENSHIFT_DIY_PORT}" > $OPENSHIFT_DIY_DIR/logs/server.log 2>&1 &
