@@ -1,3 +1,28 @@
-The OpenShift `diy` cartridge documentation can be found at:
+# BeautifulMind.io
 
-https://github.com/openshift/origin-server/tree/master/cartridges/openshift-origin-cartridge-diy/README.md
+BeautifulMind.io is a real-time collaborative mindmap tool inspired by [etherpad-lite][].
+[etherpad-lite]: https://github.com/Pita/etherpad-lite
+
+## Contact
+
+*  [Twitter](https://twitter.com/#!/BeautifulMindio)
+*  [boerni@beautifulmind.io](boerni@beautifulmind.io)
+
+
+## Demo
+[view](http://beautifulmind.io)
+
+## Installation
+[Installation](https://github.com/nerdsportgruppe/BeautifulMind.io/wiki/Server-installation)
+
+## Todo
+* revisions, timeline (rollback, diff)
+* colourize users and their actions
+* multiple select/drag
+* …
+
+## License 
+
+[MIT](https://raw.github.com/nerdsportgruppe/BeautifulMind.io/development/LICENSE)
+
+### Enjoy!

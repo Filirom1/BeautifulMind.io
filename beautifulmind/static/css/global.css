@@ -1,0 +1,33 @@
+body {
+  padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+}
+
+#forkme-ribbon {
+    z-index: 1030;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
+}
+
+.brand-dot {
+    color: #4183c4;
+}
+
+.navbar .navbar-label-container {
+    padding-top: 13px;
+}
+
+#component-tpl {
+    display: None;
+}
+
+.ajax-load {
+    text-align: center;
+    vertical-align: middle;
+    display: none;
+}
+
+.form-horizontal-p {
+    text-align: center;
+}

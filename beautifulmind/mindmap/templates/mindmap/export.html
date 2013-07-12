@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="{{ STATIC_URL }}css/global.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}js/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}mindmap/css/mindmap.map.css" rel="stylesheet">
+
+    <!-- global javascript -->
+    <script src="{{ STATIC_URL }}js/lib/jquery-1.7.2.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}mindmap/js/mindmap.map.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}mindmap/js/mindmap.map.component.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}mindmap/js/lib/jquery.jsPlumb-1.3.8-all.js" type="text/javascript" charset="utf-8"></script>
+    <!-- /global javascript -->
+
+    <script type="text/javascript">
+        var pos_max = {
+            top: 0,
+            left: 0,
+        };
+
+        $(document).ready(function() {
+            var map = $('#mindmap-map').mindmapMap({run_init:false});
+            $($.parseJSON({{components|safe}})).each(function () {
+                data = this;
+                // merge data.fields into data
+                for (var attrname in data.fields) {
+                    data[attrname] = data.fields[attrname];
+                }
+                data.fields = undefined;
+                data.parent_pk = data.parent;
+
+                var component = map.data('mindmapMap').addComponent(data).element;
+                var component_max = {
+                    left: data.pos_left + component.outerWidth(),
+                    top: data.pos_top + component.outerHeight()
+                };
+
+                if (component_max.left > pos_max.left) pos_max.left = component_max.left;
+                if (component_max.top > pos_max.top) pos_max.top = component_max.top;
+            });
+
+            map.attr('data-dimension-left', pos_max.left);
+            map.attr('data-dimension-top', pos_max.top);
+        });
+    </script>
+</head>
+
+<body>
+{% include 'mindmap/includes/map.html' %}
+</body>
+</html>
