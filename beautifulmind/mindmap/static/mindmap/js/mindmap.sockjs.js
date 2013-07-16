@@ -2,7 +2,6 @@
     $.mindmapSockjs = function() {
         var self = this;
         var map;
-        bm_globals.mindmaptornado.server = bm_globals.mindmaptornado.server.replace(/\.org/, '.org:8000')
         self.socket = new SockJS(bm_globals.mindmaptornado.server);
 
         // status label handling

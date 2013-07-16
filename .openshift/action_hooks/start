@@ -6,4 +6,5 @@ cd $OPENSHIFT_REPO_DIR/beautifulmind
 ./virtualenv/bin/python manage.py syncdb
 ./virtualenv/bin/python manage.py migrate
 
-nohup ./virtualenv/bin/python manage.py runserver_plus "${OPENSHIFT_DIY_IP}:${OPENSHIFT_DIY_PORT}" > $OPENSHIFT_DIY_DIR/logs/server.log 2>&1 &
+nohup ./virtualenv/bin/python manage.py runserver_plus "${OPENSHIFT_DIY_IP}:${OPENSHIFT_DIY_EXTRA_PORT}" > $OPENSHIFT_DIY_DIR/logs/server.log 2>&1 &
+nohup ./virtualenv/bin/python manage.py mindmaptornado_run >> $OPENSHIFT_DIY_DIR/logs/server.log 2>&1 &

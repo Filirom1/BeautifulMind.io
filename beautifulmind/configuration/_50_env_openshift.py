@@ -27,9 +27,9 @@ if not settings.DEBUG:
 
 COMPRESS_ENABLED = True
 
-MINDMAPTORNADO_BIND_PORT = os.getenv("OPENSHIFT_PYTHON_PORT")
-MINDMAPTORNADO_BIND_IP = os.getenv("OPENSHIFT_PYTHON_IP")
-MINDMAPTORNADO_SERVER = 'http://' + os.getenv("OPENSHIFT_APP_DNS") + '/ws/'
+MINDMAPTORNADO_BIND_PORT = os.getenv("OPENSHIFT_DIY_PORT")
+MINDMAPTORNADO_BIND_IP = os.getenv("OPENSHIFT_DIY_IP")
+MINDMAPTORNADO_SERVER = 'http://' + os.getenv("OPENSHIFT_APP_DNS") + ':8000/ws/'
 
 ADMINS = (
     ('Bernhard', 'boerni@beautifulmind.io'),
